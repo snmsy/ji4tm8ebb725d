@@ -6,6 +6,8 @@ services:
     environment:
       - PORT=8000
       - DATABASE_URL=postgresql://postgres:postgres@db:5432/default
+      - GOOGLE_CLIENT_ID=hogehoge
+      - GOOGLE_CLIENT_SECRET=fugafuga
     ports:
       - '8000:8000'
     volumes:

@@ -7,6 +7,7 @@ class User(db.Model, UserMixin):
     __tablename__ = 'users'
 
     id = db.Column(db.BigInteger, primary_key=True, nullable=False)
+    google_user_id = db.Column(db.Text, nullable=False)
     name = db.Column(db.Text, nullable=False)
     email = db.Column(db.Text, nullable=False, unique=True)
     profile_pic = db.Column(db.Text, nullable=False)
