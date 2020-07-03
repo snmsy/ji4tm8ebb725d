@@ -23,3 +23,5 @@ ENV LANG C.UTF-8
 COPY app .
 
 RUN pip3 install -r requirements.txt
+
+CMD uwsgi --ini uwsgi.ini
