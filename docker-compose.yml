@@ -1,0 +1,25 @@
+version: '3'
+
+services:
+  web:
+    build: .
+    environment:
+      - PORT=8000
+      - DATABASE_URL=postgresql://postgres:postgres@db:5432/default
+    ports:
+      - '8000:8000'
+    volumes:
+      - ./app:/home/app
+    restart: always
+    command: uwsgi --ini uwsgi.ini
+
+  db:
+    image: postgres:alpine
+    ports:
+      - "5432:5432"
+    volumes:
+      - ./.data/postgres:/var/lib/postgresql/data
+    environment:
+      POSTGRES_DB: default
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
